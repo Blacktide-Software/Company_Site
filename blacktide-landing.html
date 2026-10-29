@@ -1,0 +1,223 @@
+<!--
+  Blacktide Software landing page.
+  Paste everything in this file into a Squarespace Code Block
+  (Edit page > Add Block > Code, set it to HTML, turn "Display Source" off).
+  All styles are scoped under .bt so they won't clash with the Squarespace theme.
+  Plain HTML + CSS, no scripts.
+-->
+<style>
+  .bt {
+    --bt-ink: #0b1724;
+    --bt-deep: #0f2236;
+    --bt-panel: #132b44;
+    --bt-line: rgba(255, 255, 255, 0.10);
+    --bt-text: #e8eef5;
+    --bt-muted: #9fb2c6;
+    --bt-accent: #3fc1c9;
+    --bt-accent-dark: #2a9aa1;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    color: var(--bt-text);
+    background: var(--bt-ink);
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+  }
+  .bt *, .bt *::before, .bt *::after { box-sizing: border-box; }
+  .bt h1, .bt h2, .bt h3, .bt p { margin: 0; color: inherit; font-family: inherit; letter-spacing: normal; text-transform: none; }
+  .bt a { color: inherit; text-decoration: none; }
+  .bt-wrap { max-width: 1080px; margin: 0 auto; padding: 0 24px; }
+
+  /* Top bar */
+  .bt-nav { display: flex; align-items: center; justify-content: space-between; padding: 22px 0; }
+  .bt-logo { display: flex; align-items: center; gap: 10px; font-weight: 700; font-size: 18px; letter-spacing: 0.02em; }
+  .bt-logo svg { width: 30px; height: 30px; flex: none; }
+  .bt-nav-cta { font-size: 15px; font-weight: 600; padding: 9px 18px; border: 1px solid var(--bt-line); border-radius: 999px; transition: border-color .2s, background .2s; }
+  .bt-nav-cta:hover { border-color: var(--bt-accent); background: rgba(63, 193, 201, 0.08); }
+
+  /* Hero */
+  .bt-hero { position: relative; background: linear-gradient(180deg, var(--bt-ink) 0%, var(--bt-deep) 100%); overflow: hidden; }
+  .bt-hero-body { padding: 72px 0 120px; max-width: 720px; }
+  .bt-eyebrow { display: inline-block; font-size: 13px; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase !important; color: var(--bt-accent); margin-bottom: 18px !important; }
+  .bt-hero h1 { font-size: clamp(34px, 6vw, 56px); line-height: 1.1; font-weight: 800; margin-bottom: 22px; }
+  .bt-hero p { font-size: clamp(17px, 2.2vw, 20px); color: var(--bt-muted); margin-bottom: 34px; max-width: 600px; }
+  .bt-btns { display: flex; flex-wrap: wrap; gap: 12px; }
+  .bt-btn { display: inline-block; font-size: 16px; font-weight: 600; padding: 14px 26px; border-radius: 8px; transition: background .2s, border-color .2s; }
+  .bt-btn-primary { background: var(--bt-accent); color: var(--bt-ink) !important; }
+  .bt-btn-primary:hover { background: var(--bt-accent-dark); }
+  .bt-btn-ghost { border: 1px solid var(--bt-line); }
+  .bt-btn-ghost:hover { border-color: var(--bt-accent); }
+  .bt-wave { position: absolute; left: 0; right: 0; bottom: -1px; width: 100%; height: 90px; display: block; }
+
+  /* Sections */
+  .bt-section { padding: 88px 0; }
+  .bt-section-alt { background: var(--bt-deep); }
+  .bt-head { max-width: 640px; margin-bottom: 44px; }
+  .bt-head h2 { font-size: clamp(28px, 4vw, 38px); line-height: 1.2; font-weight: 750; margin-bottom: 12px; }
+  .bt-head p { color: var(--bt-muted); font-size: 17px; }
+
+  .bt-grid { display: grid; gap: 20px; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); }
+  .bt-card { background: var(--bt-panel); border: 1px solid var(--bt-line); border-radius: 14px; padding: 28px; }
+  .bt-icon { width: 46px; height: 46px; border-radius: 10px; background: rgba(63, 193, 201, 0.12); display: flex; align-items: center; justify-content: center; margin-bottom: 18px; }
+  .bt-icon svg { width: 24px; height: 24px; stroke: var(--bt-accent); fill: none; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
+  .bt-card h3 { font-size: 20px; font-weight: 700; margin-bottom: 10px; }
+  .bt-card p { color: var(--bt-muted); font-size: 16px; }
+  .bt-card ul { margin: 14px 0 0; padding: 0; list-style: none; }
+  .bt-card li { position: relative; padding-left: 20px; color: var(--bt-text); font-size: 15px; margin: 6px 0; }
+  .bt-card li::before { content: ""; position: absolute; left: 2px; top: 10px; width: 7px; height: 7px; border-radius: 50%; background: var(--bt-accent); }
+
+  /* Steps */
+  .bt-steps { display: grid; gap: 20px; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); counter-reset: bt-step; }
+  .bt-step { border-top: 2px solid var(--bt-accent); padding-top: 20px; }
+  .bt-step-num { font-size: 14px; font-weight: 700; color: var(--bt-accent); margin-bottom: 8px; letter-spacing: 0.08em; }
+  .bt-step h3 { font-size: 19px; font-weight: 700; margin-bottom: 8px; }
+  .bt-step p { color: var(--bt-muted); font-size: 15.5px; }
+
+  /* Contact */
+  .bt-contact { text-align: center; }
+  .bt-contact .bt-head { margin: 0 auto 32px; }
+  .bt-contact .bt-btns { justify-content: center; }
+  .bt-email { display: block; margin-top: 18px !important; color: var(--bt-muted); font-size: 15px; }
+  .bt-email a { color: var(--bt-accent); }
+
+  /* Footer */
+  .bt-foot { border-top: 1px solid var(--bt-line); padding: 28px 0; color: var(--bt-muted); font-size: 14px; }
+  .bt-foot .bt-wrap { display: flex; flex-wrap: wrap; gap: 10px; justify-content: space-between; }
+
+  @media (max-width: 600px) {
+    .bt-wrap { padding: 0 16px; }
+    .bt-hero-body { padding: 44px 0 96px; }
+    .bt-section { padding: 64px 0; }
+    .bt-nav-cta { display: none; }
+    .bt-btn { width: 100%; text-align: center; }
+  }
+</style>
+
+<div class="bt">
+
+  <header class="bt-hero">
+    <div class="bt-wrap">
+      <nav class="bt-nav">
+        <a class="bt-logo" href="#">
+          <svg viewBox="0 0 32 32" aria-hidden="true">
+            <rect width="32" height="32" rx="8" fill="#3fc1c9"/>
+            <path d="M5 19c3 0 3-3 6-3s3 3 6 3 3-3 6-3 3 3 4 3" fill="none" stroke="#0b1724" stroke-width="2.4" stroke-linecap="round"/>
+            <path d="M5 24c3 0 3-3 6-3s3 3 6 3 3-3 6-3 3 3 4 3" fill="none" stroke="#0b1724" stroke-width="2.4" stroke-linecap="round" opacity=".5"/>
+          </svg>
+          Blacktide Software
+        </a>
+        <a class="bt-nav-cta" href="mailto:captain@blacktidesoftware.com">Contact us</a>
+      </nav>
+
+      <div class="bt-hero-body">
+        <span class="bt-eyebrow">Custom software for small business</span>
+        <h1>Software that fits the way your business already runs.</h1>
+        <p>We build business apps, websites and automation for small businesses, so you can spend less time on busywork and keep more of your customers.</p>
+        <div class="bt-btns">
+          <a class="bt-btn bt-btn-primary" href="mailto:captain@blacktidesoftware.com?subject=Project%20inquiry">Start a conversation</a>
+          <a class="bt-btn bt-btn-ghost" href="#bt-services">See what we do</a>
+        </div>
+      </div>
+    </div>
+    <svg class="bt-wave" viewBox="0 0 1440 90" preserveAspectRatio="none" aria-hidden="true">
+      <path d="M0 50c120-30 240-30 360 0s240 30 360 0 240-30 360 0 240 30 360 0v40H0z" fill="#0b1724"/>
+    </svg>
+  </header>
+
+  <section class="bt-section" id="bt-services">
+    <div class="bt-wrap">
+      <div class="bt-head">
+        <h2>What we do</h2>
+        <p>Three kinds of work, all built for businesses that don't have an IT department.</p>
+      </div>
+      <div class="bt-grid">
+        <div class="bt-card">
+          <div class="bt-icon">
+            <svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="14" rx="2"/><path d="M3 9h18M8 21h8M12 18v3"/></svg>
+          </div>
+          <h3>Custom business apps</h3>
+          <p>Tools built around your process instead of forcing you into someone else's.</p>
+          <ul>
+            <li>Customer and job tracking (CRMs)</li>
+            <li>Dashboards and reporting</li>
+            <li>Internal tools for your team</li>
+          </ul>
+        </div>
+        <div class="bt-card">
+          <div class="bt-icon">
+            <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c2.5 2.5 3.8 5.5 3.8 9s-1.3 6.5-3.8 9c-2.5-2.5-3.8-5.5-3.8-9S9.5 5.5 12 3z"/></svg>
+          </div>
+          <h3>Websites</h3>
+          <p>Clean, fast websites for local service businesses that bring in calls and quote requests.</p>
+          <ul>
+            <li>Services and service area pages</li>
+            <li>Photo galleries and reviews</li>
+            <li>Quote and contact forms</li>
+          </ul>
+        </div>
+        <div class="bt-card">
+          <div class="bt-icon">
+            <svg viewBox="0 0 24 24"><path d="M21 15a2 2 0 0 1-2 2H8l-4 4V5a2 2 0 0 1 2-2h13a2 2 0 0 1 2 2z"/><path d="M8 9h8M8 13h5"/></svg>
+          </div>
+          <h3>Automation for the trades</h3>
+          <p>For HVAC, plumbing and other service companies that lose jobs when the phone goes unanswered.</p>
+          <ul>
+            <li>Missed-call text-back</li>
+            <li>Website chat that captures leads</li>
+            <li>Follow-ups without the manual work</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="bt-section bt-section-alt">
+    <div class="bt-wrap">
+      <div class="bt-head">
+        <h2>How we work</h2>
+        <p>No surprises on scope, price or who owns what.</p>
+      </div>
+      <div class="bt-steps">
+        <div class="bt-step">
+          <div class="bt-step-num">01</div>
+          <h3>Talk it through</h3>
+          <p>We learn how your business runs today and where time or money is slipping away.</p>
+        </div>
+        <div class="bt-step">
+          <div class="bt-step-num">02</div>
+          <h3>See it first</h3>
+          <p>You get a clickable mockup and a fixed quote before any building starts.</p>
+        </div>
+        <div class="bt-step">
+          <div class="bt-step-num">03</div>
+          <h3>Build and launch</h3>
+          <p>We build in milestones, test with you, and set it up on accounts you own.</p>
+        </div>
+        <div class="bt-step">
+          <div class="bt-step-num">04</div>
+          <h3>Stay supported</h3>
+          <p>Every project comes with a warranty period, plain-English docs, and a real person to reach when you need help.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="bt-section bt-contact" id="bt-contact">
+    <div class="bt-wrap">
+      <div class="bt-head">
+        <h2>Have something in mind?</h2>
+        <p>Tell us what's slowing your business down. We'll let you know honestly whether we can help and what it would take.</p>
+      </div>
+      <div class="bt-btns">
+        <a class="bt-btn bt-btn-primary" href="mailto:captain@blacktidesoftware.com?subject=Project%20inquiry">Email us</a>
+      </div>
+      <p class="bt-email">or write to <a href="mailto:captain@blacktidesoftware.com">captain@blacktidesoftware.com</a></p>
+    </div>
+  </section>
+
+  <footer class="bt-foot">
+    <div class="bt-wrap">
+      <span>&copy; 2026 Blacktide Software LLC</span>
+      <span>Brandon, Florida</span>
+    </div>
+  </footer>
+
+</div>
