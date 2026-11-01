@@ -81,6 +81,9 @@
   /* Footer */
   .bt-foot { border-top: 1px solid var(--bt-line); padding: 28px 0; color: var(--bt-muted); font-size: 14px; }
   .bt-foot .bt-wrap { display: flex; flex-wrap: wrap; gap: 10px; justify-content: space-between; }
+  .bt-foot-links { display: flex; gap: 20px; }
+  .bt-foot-links a { color: var(--bt-text); text-decoration: underline !important; text-underline-offset: 3px; }
+  .bt-foot-links a:hover { color: var(--bt-accent); }
 
   @media (max-width: 600px) {
     .bt-wrap { padding: 0 16px; }
@@ -215,8 +218,11 @@
 
   <footer class="bt-foot">
     <div class="bt-wrap">
-      <span>&copy; 2026 Blacktide Software LLC</span>
-      <span>Brandon, Florida</span>
+      <span>&copy; 2026 Blacktide Software LLC &middot; Brandon, Florida</span>
+      <span class="bt-foot-links">
+        <a href="/privacy">Privacy Policy</a>
+        <a href="/terms">Terms of Service</a>
+      </span>
     </div>
   </footer>
 
