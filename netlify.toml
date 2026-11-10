@@ -1,0 +1,29 @@
+# Netlify settings for blacktidesoftware.com
+# The site is plain HTML: no build step, Netlify publishes the "public" folder as-is.
+
+[build]
+  publish = "public"
+  command = ""
+
+# Old file names from the first drag-and-drop upload, kept so old links still work
+[[redirects]]
+  from = "/blacktide-landing.html"
+  to = "/"
+  status = 301
+
+[[redirects]]
+  from = "/privacy.html"
+  to = "/privacy/"
+  status = 301
+
+[[redirects]]
+  from = "/terms.html"
+  to = "/terms/"
+  status = 301
+
+[[headers]]
+  for = "/*"
+  [headers.values]
+    X-Content-Type-Options = "nosniff"
+    X-Frame-Options = "DENY"
+    Referrer-Policy = "strict-origin-when-cross-origin"
