@@ -22,7 +22,7 @@ The Netlify project lives in the Blacktide Software team, signed in with the cap
 
 ## Contact form
 
-The form on the home page uses Netlify Forms (free, unlimited on the current plan). Submissions show up in Netlify under **Forms**. Turn on email notifications to captain@blacktidesoftware.com under **Project configuration > Notifications > Emails and webhooks > Form submission notifications**.
+The form on the home page uses Netlify Forms (free, unlimited on the current plan). Submissions show up in Netlify under **Forms**. To get each one by email, go to **Forms > Submission notifications** and add an email notification to captain@blacktidesoftware.com (the address must belong to a member of the Netlify team, and captain@ is the owner). Notifications come from formresponses@netlify.com, and hitting Reply answers the person who filled out the form.
 
 ## Still to do
 
