@@ -26,5 +26,6 @@ The form on the home page uses Netlify Forms (free, unlimited on the current pla
 
 ## Still to do
 
-- Add the virtual mailbox street address to the "Contact us" section of the privacy and terms pages once it's set up.
 - Have a Florida attorney review the privacy policy and terms.
+
+The privacy and terms pages list the company as "Brandon, Florida" with the captain@ email, on purpose, so no home address is published.
